@@ -1,0 +1,42 @@
+{
+    "controller": {
+        "status": {
+          "not_found": "Item not found",
+          "success": "Status updated successfully",
+          "error": "Server error"
+        },
+        "user": {
+          "add": "User was successfully created ",
+          "edit": "User modified successfully",
+          "drop": "User was successfully deleted",
+          "del": "Cannot delete, user is linked to data",
+          "editUser": "Profile updated successfully",
+          "pwd": "Password updated successfully"
+        },
+        "student": {
+          "add": "Student was successfully created ",
+          "edit": "Student was successfully updated",
+          "drop": "Student was successfully deleted",
+          "del": "Unable to delete, student is linked to data"
+        },
+        "module": {
+          "add": "Module was successfully created ",
+          "edit": "Module was successfully updated",
+          "drop": "Module was successfully deleted",
+          "del": "Cannot delete, this module is linked to data"
+        },
+        "register": {
+          "add": "Registration was successfully created ",
+          "edit": "Registration was successfully updated",
+          "drop": "Registration was successfully deleted",
+          "del": "Unable to delete, the registration is linked to data",
+          "exist": "This student is already registered"
+        },
+        "payment": {
+          "add": "Payment was was successfully created ",
+          "edit": "Payment was was successfully updated",
+          "drop": "Payment was was successfully deleted",
+          "del": "Unable to delete, payment is linked to data"
+        }
+      }
+}

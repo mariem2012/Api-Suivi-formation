@@ -1,0 +1,42 @@
+{
+    "controller": {
+    "status": {
+      "not_found": "Élément non trouvé",
+      "success": "Statut mis à jour avec succés",
+      "error": "Erreur serveur"
+    },
+    "user": {
+      "add": "L'utilisateur a été crée avec succés",
+      "edit": "L'utilisateur a été modifiée avec succés",
+      "drop": "L'utilisateur a été supprimée avec succés",
+      "del": "Suppression impossible, l'utilisateur est relié à des données",
+      "editUser": "Le profil a été mis à jour avec succès",
+      "pwd": "Le mot de passe a été mis à jour avec succès"
+    },
+    "student": {
+      "add": "L'apprenant a été crée avec succés",
+      "edit": "L'apprenant a été modifiée avec succés",
+      "drop": "L'apprenant a été supprimée avec succés",
+      "del": "Suppression impossible, l'apprenant est relié à des données"
+    },
+    "module": {
+      "add": "Le module a été crée avec succés",
+      "edit": "Le module a été modifiée avec succés",
+      "drop": "Le module a été supprimée avec succés",
+      "del": "Suppression impossible, ce module est relié à des données"
+    },
+    "register": {
+      "add": "L'inscription a été crée avec succés",
+      "edit": "L'inscription a été modifiée avec succés",
+      "drop": "L'inscription a été supprimée avec succés",
+      "del": "Suppression impossible, l'inscription est reliée à des données",
+      "exist": "Cet apprenant est déjà inscrit"
+    },
+    "payment": {
+      "add": "Le paiement a été crée avec succés",
+      "edit": "Le paiement a été modifiée avec succés",
+      "drop": "Le paiement a été supprimée avec succés",
+      "del": "Suppression impossible, ce paiement est reliée à des données"
+    }
+  }
+}
