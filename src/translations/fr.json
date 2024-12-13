@@ -1,18 +1,5 @@
 {
     "controller": {
-    "status": {
-      "not_found": "Élément non trouvé",
-      "success": "Statut mis à jour avec succés",
-      "error": "Erreur serveur"
-    },
-    "user": {
-      "add": "L'utilisateur a été crée avec succés",
-      "edit": "L'utilisateur a été modifiée avec succés",
-      "drop": "L'utilisateur a été supprimée avec succés",
-      "del": "Suppression impossible, l'utilisateur est relié à des données",
-      "editUser": "Le profil a été mis à jour avec succès",
-      "pwd": "Le mot de passe a été mis à jour avec succès"
-    },
     "student": {
       "add": "L'apprenant a été crée avec succés",
       "edit": "L'apprenant a été modifiée avec succés",

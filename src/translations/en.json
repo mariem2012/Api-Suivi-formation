@@ -1,18 +1,5 @@
 {
     "controller": {
-        "status": {
-          "not_found": "Item not found",
-          "success": "Status updated successfully",
-          "error": "Server error"
-        },
-        "user": {
-          "add": "User was successfully created ",
-          "edit": "User modified successfully",
-          "drop": "User was successfully deleted",
-          "del": "Cannot delete, user is linked to data",
-          "editUser": "Profile updated successfully",
-          "pwd": "Password updated successfully"
-        },
         "student": {
           "add": "Student was successfully created ",
           "edit": "Student was successfully updated",
