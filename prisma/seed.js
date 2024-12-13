@@ -1,6 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import bcrypt from 'bcrypt';
-
 const prisma = new PrismaClient();
 
 async function main() {
@@ -9,37 +7,22 @@ async function main() {
   await prisma.registration.deleteMany();
   await prisma.module.deleteMany();
   await prisma.student.deleteMany();
-  await prisma.user.deleteMany();
-
-  const pwd = await bcrypt.hash('securePwd_123', 10);
-
-  const user = await prisma.user.create({
-    data: {
-      full_name: 'Aichetou Gaye',
-      email: 'admin@example.com',
-      password: pwd,
-      role: 'ADMIN',
-    },
-  });
 
   const student = await prisma.student.create({
     data: {
-      last_name: 'Sow',
-      first_name: 'Marieme',
+      full_name: 'Marieme Fall',
       phone_number: '+22244567890',
       email: 'marieme.sow@example.com',
       address: 'Nouakchott, Tevragh-Zeina',
-      status: 'Active',
-      userId: user.id,
+      status: true,
     },
   });
 
   const module = await prisma.module.create({
     data: {
       name: 'Initiation à la Programmation',
-      duration: new Date('2024-01-01T00:00:00.000Z'),
+      duration: 72,
       price: 15000.0,
-      userId: user.id,
     },
   });
 
@@ -51,7 +34,6 @@ async function main() {
       amount: 15000.0,
       studentId: student.id,
       moduleId: module.id,
-      userId: user.id,
     },
   });
 
@@ -62,7 +44,7 @@ async function main() {
       payer: 'Marieme Sow',
       payer_number: '+22244567890',
       registrationId: registration.id,
-      userId: user.id,
+      payment_mode: 'Bankily',
     },
   });
 

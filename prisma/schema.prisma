@@ -7,37 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  USER
-  ADMIN
-}
-
-model User {
-  id           Int            @id @default(autoincrement())
-  full_name    String         @db.VarChar(50)
-  email        String         @unique @db.VarChar(100)
-  password     String         @db.VarChar(255)
-  role         Role           @default(USER)
-  status       Boolean        @default(true)
-  // resetToken   String?        @unique@db.VarChar(255)
-  student      Student[]
-  registration Registration[]
-  module       Module[]
-  payment      Payment[]
-
-  @@map("users")
-}
-
 model Student {
   id           Int            @id @default(autoincrement())
-  last_name    String         @db.VarChar(20)
-  first_name   String         @db.VarChar(30)
+  full_name   String         @db.VarChar(50)
   phone_number String         @unique @db.VarChar(20)
   email        String         @unique @db.VarChar(100)
   address      String         @db.VarChar(100)
-  status       String         @db.VarChar(20)
-  userId       Int?
-  user         User?          @relation(fields: [userId], references: [id], onDelete: Restrict)
+  status       Boolean        @default(true)
   registration Registration[]
 
   @@map("students")
@@ -46,11 +22,8 @@ model Student {
 model Module {
   id           Int            @id @default(autoincrement())
   name         String         @unique @db.VarChar(50)
-  duration     DateTime       @db.Date
+  duration     Int       
   price        Decimal        @db.Decimal(15, 2)
-  status       Boolean        @default(true)
-  userId       Int?
-  user         User?          @relation(fields: [userId], references: [id], onDelete: Restrict)
   registration Registration[]
 
   @@map("modules")
@@ -66,8 +39,6 @@ model Registration {
   student           Student   @relation(fields: [studentId], references: [id], onDelete: Restrict)
   moduleId          Int
   module            Module    @relation(fields: [moduleId], references: [id], onDelete: Restrict)
-  userId            Int?
-  user              User?     @relation(fields: [userId], references: [id], onDelete: Restrict)
   payment           Payment[]
 
   @@map("registrations")
@@ -75,14 +46,13 @@ model Registration {
 
 model Payment {
   id             Int          @id @default(autoincrement())
-  payment_date   DateTime     @db.Date
+  payment_date   DateTime     @db.Date @default(now())
   amount         Decimal      @db.Decimal(15, 2)
   payer          String       @db.VarChar(50)
-  payer_number   String       @unique @db.VarChar(50)
+  payer_number   String       @unique @db.VarChar(20)
+  payment_mode   String       @db.VarChar(30)
   registrationId Int
   registration   Registration @relation(fields: [registrationId], references: [id], onDelete: Restrict)
-  userId         Int?
-  user           User?        @relation(fields: [userId], references: [id], onDelete: Restrict)
 
   @@map("payments")
 }
