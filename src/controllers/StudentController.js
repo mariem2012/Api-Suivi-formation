@@ -47,16 +47,15 @@ const getStudentByID = async (req, res, next) => {
 
 const store = async (req, res, next) => {
   try {
-    const { last_name, first_name, phone_number, email, address, status } =
+    const { full_name, phone_number, email, address, tutor } =
       req.body;
     await prisma.student.create({
       data: {
-        last_name,
-        first_name,
+        full_name,
         phone_number,
         email,
         address,
-        status,
+        tutor
       },
     });
     await prisma.$disconnect();
@@ -71,18 +70,17 @@ const store = async (req, res, next) => {
 
 const update = async (req, res, next) => {
   try {
-    const { last_name, first_name, phone_number, email, address, status } =
-      req.body;
+    const { full_name, phone_number, email, address, tutor } =
+    req.body;
     const id = req.params.id;
     await prisma.student.update({
       where: { id: parseInt(id) },
       data: {
-        last_name,
-        first_name,
+        full_name,
         phone_number,
         email,
         address,
-        status,
+        tutor
       },
     });
     res

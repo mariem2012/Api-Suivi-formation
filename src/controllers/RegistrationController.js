@@ -1,6 +1,7 @@
 import prisma from "../config/prisma.js";
 import { StatusCodes } from "http-status-codes";
 import { RegistrationSerialiser } from '../serialisers/RegistrationSerialiser.js';
+import moment from "moment";
 
 const registrations = async (_req, res, next) => {
   try {
@@ -17,8 +18,6 @@ const registrations = async (_req, res, next) => {
           select: {
             id: true,
             name: true,
-            duration: true,
-            price: true,
           },
         },
       },
@@ -49,8 +48,6 @@ const getRegistrationByID = async (req, res, next) => {
           select: {
             id: true,
             name: true,
-            duration: true,
-            price: true,
           },
         },
       },
@@ -64,22 +61,44 @@ const getRegistrationByID = async (req, res, next) => {
   next();
 };
 
+
+const getAmountByModule = async (req, res, next) => {
+  try {
+    const { moduleId } = req.body;
+    const result = await prisma.registration.findUnique({
+      where: { id: parseInt(moduleId) }});
+
+    const amount = result.amount
+    res.status(StatusCodes.OK).json({ amount });
+  } catch (error) {
+    console.log(error);
+  }
+  next();
+};
+
+
 const store = async (req, res, next) => {
   try {
     const {
       registration_date,
       start_date,
-      end_date,
       amount,
       studentId,
       moduleId,
     } = req.body;
+
+    const result = await prisma.module.findUnique({
+      where: { id: moduleId }
+    })
+    const end_date = moment(start_date).add(result.duration, 'd')
+
     await prisma.registration.create({
       data: {
         registration_date: new Date(registration_date).toISOString(),
         start_date: new Date(start_date).toISOString(),
         end_date: new Date(end_date).toISOString(),
-        amount,
+        amount: parseFloat(amount),
+        paid: parseFloat(amount),
         studentId,
         moduleId,
       },
@@ -99,19 +118,24 @@ const update = async (req, res, next) => {
     const {
       registration_date,
       start_date,
-      end_date,
       amount,
       studentId,
       moduleId,
     } = req.body;
     const id = req.params.id;
+
+    const result = await prisma.module.findUnique({
+      where: { id: moduleId }
+    })
+    const end_date = moment(start_date).add(result.duration, 'd')
     await prisma.registration.update({
       where: { id: parseInt(id) },
       data: {
         registration_date: new Date(registration_date).toISOString(),
         start_date: new Date(start_date).toISOString(),
         end_date: new Date(end_date).toISOString(),
-        amount,
+        amount: parseFloat(amount),
+        paid: parseFloat(amount),
         studentId,
         moduleId,
       },
@@ -144,4 +168,4 @@ const destroy = async (req, res, next) => {
   next();
 };
 
-export { registrations, getRegistrationByID, store, update, destroy };
+export { registrations, getRegistrationByID, store, update, destroy, getAmountByModule };

@@ -1,6 +1,6 @@
 import prisma from "../config/prisma.js";
 import { StatusCodes } from "http-status-codes";
-import { PaymentSerialiser } from '../serialisers/PaymentSerialiser.js';
+import { PaymentSerialiser } from "../serialisers/PaymentSerialiser.js";
 
 const payments = async (_req, res, next) => {
   try {
@@ -12,15 +12,12 @@ const payments = async (_req, res, next) => {
               select: {
                 id: true,
                 full_name: true,
-                // phone_number: true,
               },
             },
             module: {
               select: {
                 id: true,
                 name: true,
-                // duration: true,
-                // price: true,
               },
             },
           },
@@ -48,15 +45,12 @@ const getPaymentByID = async (req, res, next) => {
               select: {
                 id: true,
                 full_name: true,
-                // phone_number: true,
               },
             },
             module: {
               select: {
                 id: true,
                 name: true,
-                // duration: true,
-                // price: true,
               },
             },
           },
@@ -82,15 +76,21 @@ const store = async (req, res, next) => {
       payment_mode,
       registrationId,
     } = req.body;
+    
     await prisma.payment.create({
       data: {
         payment_date: new Date(payment_date).toISOString(),
-        amount,
+        amount: parseFloat(amount),
         payer,
         payer_number,
         payment_mode,
         registrationId,
       },
+    });
+
+    await prisma.registration.update({
+      where: { id: parseInt(registrationId) },
+      data: { paid: { decrement: parseFloat(amount) } },
     });
     await prisma.$disconnect();
     res
@@ -102,39 +102,16 @@ const store = async (req, res, next) => {
   next();
 };
 
-const update = async (req, res, next) => {
-  try {
-    const { payment_date,
-        amount,
-        payer,
-        payer_number,
-        payment_mode,
-        registrationId, } =
-      req.body;
-    const id = req.params.id;
-    await prisma.payment.update({
-      where: { id: parseInt(id) },
-      data: {
-        payment_date: new Date(payment_date).toISOString(),
-        amount,
-        payer,
-        payer_number,
-        payment_mode,
-        registrationId,
-      },
-    });
-    res
-      .status(StatusCodes.OK)
-      .json({ message: req.t("controller.payment.edit") });
-  } catch (error) {
-    console.log(error);
-  }
-  next();
-};
-
 const destroy = async (req, res, next) => {
   try {
     const id = req.params.id;
+    const result = await prisma.payment.findUnique({where: {id: parseInt(id)}})
+
+    await prisma.registration.update({
+      where: { id: parseInt(result.registrationId) },
+      data: { paid: { increment: parseFloat(result.amount) } },
+    });
+
     await prisma.payment.delete({
       where: { id: parseInt(id) },
     });
@@ -151,4 +128,4 @@ const destroy = async (req, res, next) => {
   next();
 };
 
-export { payments, getPaymentByID, store, update, destroy };
+export { payments, getPaymentByID, store, destroy };

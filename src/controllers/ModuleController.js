@@ -30,8 +30,8 @@ const store = async (req, res, next) => {
     await prisma.module.create({
       data: {
         name,
-        duration,
-        price,
+        duration: parseInt(duration),
+        price: parseFloat(price),
       },
     });
     await prisma.$disconnect();
@@ -52,8 +52,8 @@ const update = async (req, res, next) => {
       where: { id: parseInt(id) },
       data: {
         name,
-        duration,
-        price,
+        duration: parseInt(duration),
+        price: parseFloat(price),
       },
     });
     res
