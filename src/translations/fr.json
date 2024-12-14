@@ -1,29 +1,57 @@
 {
-    "controller": {
-    "student": {
-      "add": "L'apprenant a été crée avec succés",
-      "edit": "L'apprenant a été modifiée avec succés",
-      "drop": "L'apprenant a été supprimée avec succés",
-      "del": "Suppression impossible, l'apprenant est relié à des données"
+    "controller": 
+    {
+        "student": 
+        {
+            "add": "L'apprenant a été crée avec succés",
+            "edit": "L'apprenant a été modifié avec succés",
+            "drop": "L'apprenant a été supprimé avec succés",
+            "del": "Suppression impossible, l'apprenant est relié à des données"
+        },
+        "module": 
+        {
+            "add": "Le module a été crée avec succés",
+            "edit": "Le module a été modifié avec succés",
+            "drop": "Le module a été supprimé avec succés",
+            "del": "Suppression impossible, ce module est relié à des données"
+        },
+        "register": 
+        {
+            "add": "L'inscription a été crée avec succés",
+            "edit": "L'inscription a été modifiée avec succés",
+            "drop": "L'inscription a été supprimée avec succés",
+            "del": "Suppression impossible, l'inscription est reliée à des données",
+            "exist": "Cet apprenant est déjà inscrit"
+        },
+        "payment": 
+        {
+            "add": "Le paiement a été crée avec succés",
+            "edit": "Le paiement a été modifié avec succés",
+            "drop": "Le paiement a été supprimé avec succés",
+            "del": "Suppression impossible, ce paiement est reliée à des données"
+        }
     },
-    "module": {
-      "add": "Le module a été crée avec succés",
-      "edit": "Le module a été modifiée avec succés",
-      "drop": "Le module a été supprimée avec succés",
-      "del": "Suppression impossible, ce module est relié à des données"
-    },
-    "register": {
-      "add": "L'inscription a été crée avec succés",
-      "edit": "L'inscription a été modifiée avec succés",
-      "drop": "L'inscription a été supprimée avec succés",
-      "del": "Suppression impossible, l'inscription est reliée à des données",
-      "exist": "Cet apprenant est déjà inscrit"
-    },
-    "payment": {
-      "add": "Le paiement a été crée avec succés",
-      "edit": "Le paiement a été modifiée avec succés",
-      "drop": "Le paiement a été supprimée avec succés",
-      "del": "Suppression impossible, ce paiement est reliée à des données"
+    "validator": 
+    {
+        "empty": "Le champs est obligatoire",
+        "string": "L'attribut est une chaine de caractère",
+        "maximum": "La taille maximum est de",
+        "minimum": "La taille est au minimum",
+        "match": "Le format n'est pas valide",
+        "email": "L'email est déjà utilisé",
+        "phone": "Le numéro de téléphone existe déjà",
+        "boolean": "La valeur est booléene (vrai ou faux)",
+        "integer": "L'attribut est un entier",
+        "decimal": "L'attribut est un decimal",
+        "date": "L'attribut est une date ISO",
+        "p_exists": "Ce paiement existe déjà",
+        "p_notExists": "Ce paiement n'existe pas",
+        "m_exists": "Ce module existe déjà",
+        "m_notExists": "Ce module n'existe pas",
+        "st_exists": "Cet élève existe déjà",
+        "st_notExists": "Cet élève n'existe pas",
+        "r_notExists": "Cette inscription n'existe pas",
+        "r_Exists": "Cette inscription existe déjà",
+        "tel": "Un numéro compte au moins 8 "
     }
-  }
 }

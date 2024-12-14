@@ -6,14 +6,13 @@ export const RegistrationSerialiser = {
         registration_date: entity.registration_date,
         start_date: entity.start_date,
         end_date: entity.end_date,
-        total_amount: entity.amount,
+        amount: entity.amount,
+        paid : entity.paid,
         studentId: entity.studentId,
         student_name: entity.student.full_name,
         student_number: entity.student.phone_number,
         moduleId: entity.moduleId,
         module_name: entity.module.name,
-        duration: entity.module.duration,
-        price: entity.module.price,
       };
     });
   },
@@ -24,13 +23,12 @@ export const RegistrationSerialiser = {
       registration_date: entity.registration_date,
       start_date: entity.start_date,
       end_date: entity.end_date,
-      total_amount: entity.amount,
+      amount: entity.amount,
+      paid : entity.paid,
       studentId: entity.studentId,
       student_name: entity.student.full_name,
       student_number: entity.student.phone_number,
       moduleId: entity.moduleId,
       module_name: entity.module.name,
-      duration: entity.module.duration,
-      price: entity.module.price,
     }}
 };

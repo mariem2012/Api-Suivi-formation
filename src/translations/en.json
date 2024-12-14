@@ -1,29 +1,57 @@
 {
-    "controller": {
-        "student": {
-          "add": "Student was successfully created ",
-          "edit": "Student was successfully updated",
-          "drop": "Student was successfully deleted",
-          "del": "Unable to delete, student is linked to data"
+    "controller": 
+    {
+        "student": 
+        {
+            "add": "Student was successfully created ",
+            "edit": "Student was successfully updated",
+            "drop": "Student was successfully deleted",
+            "del": "Unable to delete, student is linked to data"
         },
-        "module": {
-          "add": "Module was successfully created ",
-          "edit": "Module was successfully updated",
-          "drop": "Module was successfully deleted",
-          "del": "Cannot delete, this module is linked to data"
+        "module": 
+        {
+            "add": "Module was successfully created ",
+            "edit": "Module was successfully updated",
+            "drop": "Module was successfully deleted",
+            "del": "Cannot delete, this module is linked to data"
         },
-        "register": {
-          "add": "Registration was successfully created ",
-          "edit": "Registration was successfully updated",
-          "drop": "Registration was successfully deleted",
-          "del": "Unable to delete, the registration is linked to data",
-          "exist": "This student is already registered"
+        "register": 
+        {
+            "add": "Registration was successfully created ",
+            "edit": "Registration was successfully updated",
+            "drop": "Registration was successfully deleted",
+            "del": "Unable to delete, the registration is linked to data",
+            "exist": "This student is already registered"
         },
-        "payment": {
-          "add": "Payment was was successfully created ",
-          "edit": "Payment was was successfully updated",
-          "drop": "Payment was was successfully deleted",
-          "del": "Unable to delete, payment is linked to data"
+        "payment": 
+        {
+            "add": "Payment was was successfully created ",
+            "edit": "Payment was was successfully updated",
+            "drop": "Payment was was successfully deleted",
+            "del": "Unable to delete, payment is linked to data"
         }
-      }
+    },
+    "validator": 
+    {
+        "empty": "The field is required",
+        "string": "The attribute is a string",
+        "maximum": "The size is maximum",
+        "minimum": "The size has to be minimum",
+        "match": "The format is not valid",
+        "email": "Email is already in use",
+        "phone": "The phone number already exists",
+        "boolean": "The value is boolean (true or false)",
+        "integer": "The attribute is an integer",
+        "decimal": "The attribute is a decimal",
+        "date": "The attribute is an ISO date",
+        "p_exists": "This payment already exists",
+        "p_notExists": "This payment does not exist",
+        "m_exists": "This module already exists",
+        "m_notExists": "This module does not exist",
+        "st_exists": "This student already exists",
+        "st_notExists": "This student does not exist",
+        "r_notExists": "This registration does not exist",
+        "r_Exists": "This registration already exists",
+        "tel": "A number has at least 8 "
+    }
 }
