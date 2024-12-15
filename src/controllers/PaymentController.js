@@ -1,6 +1,7 @@
 import prisma from "../config/prisma.js";
 import { StatusCodes } from "http-status-codes";
 import { PaymentSerialiser } from "../serialisers/PaymentSerialiser.js";
+import { RegistrationSerialiser } from "../serialisers/RegistrationSerialiser.js";
 
 const payments = async (_req, res, next) => {
   try {
@@ -128,4 +129,49 @@ const destroy = async (req, res, next) => {
   next();
 };
 
-export { payments, getPaymentByID, store, destroy };
+const getStudentRegistrations = async (req, res, next) => {
+  try {
+    // const { studentId } = req.body;
+    const id = req.params.id;
+    const result = await prisma.registration.findMany({
+      where: { studentId: parseInt(id)},
+      include: {
+        student: {
+          select: {
+            id: true,
+            full_name: true,
+            phone_number: true,
+          },
+        },
+        module: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+    })
+    const registrations = RegistrationSerialiser.serializerForTable(result);
+    res.status(StatusCodes.OK).json({ registrations });
+  } catch (error) {
+    console.log(error);
+  }
+  next()
+}
+const getAmountByRegistration = async (req, res, next) => {
+  try {    
+    // const { registrationId } = req.body;
+    const id = req.params.id;
+    const result = await prisma.registration.findUnique({
+      where: { id: parseInt(id) }});
+      
+
+    const amount = result.paid
+    res.status(StatusCodes.OK).json({ amount });
+  } catch (error) {
+    console.log(error);
+  }
+  next();
+}
+
+export { payments, getPaymentByID, store, destroy, getStudentRegistrations, getAmountByRegistration };

@@ -19,6 +19,10 @@ app.use('/api', routes);
 
 const port = 3000;
 
+app.get('/', function (req, res) {
+  res.send('Hello world')
+})
+
 app.listen(port, () => {
   console.log(`Listened on ${port}`);
 });

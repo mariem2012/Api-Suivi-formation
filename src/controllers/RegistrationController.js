@@ -62,13 +62,14 @@ const getRegistrationByID = async (req, res, next) => {
 };
 
 
-const getAmountByModule = async (req, res, next) => {
+const getModulePrice = async (req, res, next) => {
   try {
-    const { moduleId } = req.body;
-    const result = await prisma.registration.findUnique({
-      where: { id: parseInt(moduleId) }});
-
-    const amount = result.amount
+    // const { moduleId } = req.body;
+    const id = req.params.id;
+    const result = await prisma.module.findUnique({
+      where: { id: parseInt(id) }
+    });
+    const amount = result.price
     res.status(StatusCodes.OK).json({ amount });
   } catch (error) {
     console.log(error);
@@ -168,4 +169,4 @@ const destroy = async (req, res, next) => {
   next();
 };
 
-export { registrations, getRegistrationByID, store, update, destroy, getAmountByModule };
+export { registrations, getRegistrationByID, store, update, destroy, getModulePrice };
