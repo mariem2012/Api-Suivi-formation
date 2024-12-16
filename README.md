@@ -1,10 +1,10 @@
-# 🏫 Training MonitoringAPI
+#  Api-Suivi-formation
 
-## 🖹 Description
+##  Description
 
 Cette API fournit un ensemble d'endpoints pour gérer les différentes entités d'une plateforme de suivi de formations des apprenants (apprenants, paiements, modules, et inscriptions) de manière simple et efficace.
 
-## 🚀 Prérequis
+##  Prérequis
 
 - Node.js (version 14 ou supérieure)
 - Express Js
@@ -12,18 +12,18 @@ Cette API fournit un ensemble d'endpoints pour gérer les différentes entités 
 - Prisma ORM
 - Postman (pour tester l'API)
 
-## 📥 Installation
+##  Installation
 
 1. **Clonez le dépôt** :
 
 ```bash
-git clone https://github.com/Aichetou-Gaye/training_monitoring_api.git
+git clone https://github.com/mariem2012/Api-Suivi-formation.git
 ```
 
 2.  **Acceder au dossier du projet**
 
 ```bash
-cd training_monitoring_api
+cd Api-Suivi-formation
 ```
 
 3. **Installez les dépendances**
@@ -54,45 +54,45 @@ npm install
    npm start
 ```
 
-## ⛓️ Endpoints API
+##  Endpoints API
 
 - Importer la collection dans postman pour une documentation des endpoints : [collection_postman](API-Training.postman_collection.json) ;
 
-## ⚙️ Fonctionnalités
+##  Fonctionnalités
 
-### 👨🏻‍🎓 Gestion des Apprenants
+###  Gestion des Apprenants
 
 - **Lister les apprenants**;
 - **Ajouter un apprenant** avec des informations telles que : nom complet, tuteur, adresse, date de naissance, lieu de naissance, numéro téléphone, adresse email;
 - **Modifier un apprenant** avec des informations telles que : nom complet, tuteur, adresse, numéro téléphone, adresse email;
 - **Supprimer un apprenant**.
 
-### 📚 Gestion des Modules
+###  Gestion des Modules
 
 - **Lister les modules**;
 - **Ajouter une module** avec des informations telle que : nom, durée, prix;
 - **Modifier une module** avec des informations telle que : nom, durée, prix;
 - **Supprimer une module**.
 
-### 📝 Gestion des Inscriptions
+###  Gestion des Inscriptions
 
 - **Lister les inscriptions**;
 - **Ajouter une inscription** avec des informations telle que : date d'inscription, date de début, date de fin, montant, apprenant et module;
 - **Modifier une inscription** avec des informations telle que : date d'inscription, date de début, date de fin, montant, apprenant et module;
 - **Supprimer une inscription**.
 
-### 📜 Gestion des Paiements
+###  Gestion des Paiements
 
 - **Lister les paiements**;
 - **Ajouter une paiement** avec des informations telle que : date de paiement, montant, payeur, numéro téléphone payeur, mode de paiement et inscription;
 - **Supprimer une paiement**.
 
-## 📊 Génération des données par Seed
+##  Génération des données par Seed
 
 ```bash
 npm run seed
 ```
 
-## 🧕🏽 Auteur
+##  Auteur
 
-[Aichetou Gaye](https://github.com/Aichetou-Gaye)
+- **GitHub** : [Mariem Dianifaba](https://github.com/mariem2012)
