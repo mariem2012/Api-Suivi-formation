@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aichetou-Gaye/training_monitoring_api.git"
+    "url": "git+ https://github.com/mariem2012/Api-Suivi-formation.git"
   },
-  "author": "Aichetou Gaye",
+  "author": "Mariem Dianifaba",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Aichetou-Gaye/training_monitoring_api/issues"
+    "url": " https://github.com/mariem2012/Api-Suivi-formation/issues"
   },
-  "homepage": "https://github.com/Aichetou-Gaye/training_monitoring_api#readme",
+  "homepage": "https://github.com/mariem2012/Api-Suivi-formation#readme",
   "dependencies": {
     "@prisma/client": "^6.0.1",
     "bcrypt": "^5.1.1",

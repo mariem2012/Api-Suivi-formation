@@ -29,13 +29,53 @@
 					"response": []
 				},
 				{
+					"name": "GET-PAYMENTS-REGISTRATIONS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/payments-registrations/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"payments-registrations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-PAYMENTS-STUDENTS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/payments-students/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"payments-students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "POST-PAYMENT",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"full_name\": \"Ami Seck\",\r\n    \"email\" : \"user2@gmail.com\",\r\n    \"password\": \"user123\",\r\n    \"role\": \"USER\"\r\n}",
+							"raw": "{\r\n    \"payment_date\": \"2024-01-01\",\r\n    \"amount\": 10,\r\n    \"payer\": \"Aissata Ka\",\r\n    \"payer_number\": \"44000123\",\r\n    \"payment_mode\": \"Bankily\",\r\n    \"registrationId\": 1\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -240,7 +280,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n     \"moduleId\": 1  \r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -248,14 +288,15 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/registrations-amount",
+							"raw": "localhost:3000/api/registrations-amount/5",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"api",
-								"registrations-amount"
+								"registrations-amount",
+								"5"
 							]
 						}
 					},
